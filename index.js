@@ -13,20 +13,21 @@ const colors = [
   '#030e4f',
   '#F49F1c'
 ]
-const color = document.querySelector('.color')
+
+// pull the target elements to the DOM
 const btn = document.getElementById('btn')
+const textColor = document.querySelector('.color')
 
-// add event listener to the button
+// add eventlistener
 btn.addEventListener('click', () => {
-  const switchNumbers = getNewNumber()
-  console.log(switchNumbers) // displays random math position of the colors when getNewNumbers is called
+  const randomNumber = getRandomNumber()
 
-  // change the background color on btn click
-  document.body.style.backgroundColor = colors[switchNumbers]
-  color.textContent = colors[switchNumbers]
+  // the callback gets assigned to the respective DOM element
+  document.body.style.backgroundColor = colors[randomNumber]
+  textColor.textContent = colors[randomNumber]
 })
 
-// anonymours function to generate position for the colors
-getNewNumber = () => {
+// callback function to generate rounded up position size for the the colors
+getRandomNumber = () => {
   return Math.floor(Math.random() * colors.length)
 }
